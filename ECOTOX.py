@@ -7,21 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from scipy import stats
 import time
 
-""" 
-    待解决的问题
-    1. textarea输入有时会失灵
-    2. 有时会弹出警告框
-
-    需要完成的功能
-    √ 1. 将time.sleep改进为waitfor 
-    √ 2. 将每次查询的结果记录在某处, 便于出现问题时复查
-    3. 操作.xlsx将数据插入
-    √ 4. 将化合物, 毒性终点, 持续时间分别存在各数组中, 遍历查找所有所需数据
-    √ 5. 每一页改成100条数据
-
-    期待可以完成的功能
-    1. 隐藏窗口, 在后台运行该程序
-"""
 class ECOTOX_data_source:
     def __init__(self, all_chemicals, all_species, all_endpoints, all_durations) -> None:
         self.all_chemicals = all_chemicals
@@ -51,7 +36,7 @@ class ECOTOX_chrome_driver:
     def __init__(self) -> None:
         option = webdriver.ChromeOptions()
         # 隐藏窗口
-        option.add_argument('headless')
+        # option.add_argument('headless')
         # 防止打印一些无用的日志
         option.add_experimental_option(
             "excludeSwitches", ['enable-automation', 'enable-logging'])
@@ -235,13 +220,13 @@ def ECOTOX_collect_all_data_and_document(data_source: ECOTOX_data_source):
 def main():
     ds = ECOTOX_data_source(
         # 化合物
-        ['DDT'],
+        ['DDT', 'hexachlorobenzene', 'heptachlor'],
         # 物种(学名)
-        ['Lepomis'],
+        ['Lepomis', 'Bufo'],
         # 毒性终点
-        ['LC50'],
+        ['LC50', 'LC50'],
         # 时间长度(天)
-        [4]
+        [4, 1]
     )
 
     # 检查源数据是否合规
