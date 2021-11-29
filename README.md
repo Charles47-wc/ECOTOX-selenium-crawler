@@ -3,6 +3,12 @@
 - python新手, 请多指教
 - 美国EPA的ECOTOX官网: [ECOTOX | Search (epa.gov)](https://cfpub.epa.gov/ecotox/search.cfm)
 
+## 环境搭建
+- 要下载Chrome浏览器
+- 需下载ChromeDriver, 一定要下载和自己电脑上Chrome版本一致的ChromeDriver(在 设置->关于Chrome 中查看) 
+- 下载网址: [国内ChromeDriver镜像站](https://npm.taobao.org/mirrors/chromedriver/)
+- 解压后, 将ChromeDriver.exe所在文件夹添加到环境变量中
+
 ## 基本操作介绍
 
 - 在`main()`函数中, 按注释提示填入化合物, 物种(学名), 毒性终点, 时间长度(天)
